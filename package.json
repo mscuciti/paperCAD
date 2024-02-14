@@ -1,0 +1,21 @@
+{
+  "name": "papercad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "coffee": "5.5.0",
+    "jquery.terminal": "2.35.3",
+    "paper": "0.12.17",
+    "yaml": "2.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": []
+}
