@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Paper CAD</title>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      .button2 {
+        background-color: #5b5b5b;
+        border: none;
+        color: rgb(161, 161, 161);
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      .button {
+        background-color: #0000ff;
+        border: none;
+        color: white;
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      #mydiv {
+        position: absolute;
+        left: 20%;
+        top: 20%;
+        z-index: 9;
+        background-color: #280242;
+        border: 1px solid #4c4751b0;
+        text-align: center;
+      }
+      #toolPalette {
+        padding: 10px;
+        cursor: move;
+        z-index: 10;
+        background-color: #062f58;
+        color: rgb(255, 255, 255);
+      }
+      canvas[resize] {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+      }
+      #cmd {
+        font-family: "Courier New";
+        border: none;
+        outline: 0px;
+        background-color: grey;
+        font-weight: bold;
+        color: blue;
+        position: absolute;
+        width: 100%;
+        left: 5px;
+        height: 30px;
+        bottom: 0%;
+        z-index: 10;
+      }
+      .active {
+        background-color: yellow;
+      }
+      .inactive {
+        background-color: "";
+      }
+      .graph {
+        overflow-y: auto;
+        height: 100%;
+        right: 0%;
+        width: 40%;
+        position: absolute;
+        background-color: grey;
+        white-space: pre-wrap;
+      }
+      img {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" resize style="background-color: rgb(255, 255, 255);">
+    </canvas>
+    <!--
+    <div id="sceneGraph" resize class="graph"></div>
+    -->
+    <div id="mydiv">
+      <div id="toolPalette">Tools</div>
+      <table id="buttonTable">
+        <tr>
+          <td>
+            <button class="button" id="line">Line</button>
+          </td>
+          <td>
+            <button class="button" id="circle">Circle</button>
+          </td>
+          <td>
+            <button class="button" id="pline">Pline</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="button" id="sel">Select</button>
+          </td>
+          <td>
+            <button class="button" id="del">Delete</button>
+          </td>
+          <td>
+            <button class="button2" id="copy">Copy</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="button2" id="trim">Trim</button>
+          </td>
+          <td>
+            <button class="button2" id="extend">Extend</button>
+          </td>
+          <td>
+            <button class="button" id="export">Export</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="cmd" class="input" contenteditable="true"></div>
+    <script type="text/coffescript" src="src/0_ini.coffee"></script>
+    <script type="text/coffescript" src="src/1_styles.coffee"></script>
+    <script type="text/coffescript" src="src/2_tools/0_return.coffee"></script>
+    <script type="text/coffescript" src="src/2_tools/select.coffee"></script>
+    <script type="text/coffescript" src="src/2_tools/hit.coffee"></script>
+    <script type="text/coffescript" src="src/2_tools/delete.coffee"></script>
+    <script type="text/coffescript" src="src/2_tools/circle.coffee"></script>
+    <script type="text/coffescript" src="src/2_tools/line.coffee"></script>
+    <script type="text/coffescript" src="src/2_tools/pline.coffee"></script>
+    <script type="text/coffescript" src="src/3_fnc/mouseMove.coffee"></script>
+    <script type="text/coffescript" src="src/3_fnc/zoom.coffee"></script>
+    <script type="text/coffescript" src="src/3_fnc/parseCmd.coffee"></script>
+    <script type="text/coffescript" src="src/3_fnc/typeCmd.coffee"></script>
+    <script type="text/coffescript" src="src/4_canvas.coffee"></script>
+    <script type="text/coffescript" src="src/5_div.coffee"></script>
+    <script type="text/coffescript" src="src/6_cmd.coffee"></script>
+  </body>
+</html>
